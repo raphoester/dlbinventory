@@ -1,0 +1,14 @@
+{
+    "borrower":{
+        "firstName": "Marguerite", 
+        "lastName": "Duras",
+        "Department": "RH"
+    },
+    "laptops":[
+        {
+            "serialNumber": "123456",
+            "modelName": "dell 123456"
+        }
+    ], 
+    "date":"2018-09-01T16:35:08+02:00"
+}
