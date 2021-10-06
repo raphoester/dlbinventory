@@ -91,5 +91,27 @@ func FillExcelTemplate(f *excelize.File, borrow entity.Borrow) error {
 	f.SetCellValue("Sheet1", "B4", borrow.Borrower.Firstname)
 	f.SetCellValue("Sheet1", "B5", borrow.Borrower.Department)
 
+	var a8 string
+	var b8 string
+	switch borrow.Type {
+	case "MOBILE":
+		a8 = fmt.Sprintf("Mobile : %s", borrow.Mobiles[0].ModelName)
+		b8 = fmt.Sprintf("IMEI : %s", borrow.Mobiles[0].ImeiNumber)
+	case "PORTABLE":
+		a8 = fmt.Sprintf("Portable : %s", borrow.Laptops[0].ModelName)
+		b8 = fmt.Sprintf("Série : %s", borrow.Laptops[0].SerialNumber)
+	case "CASQUE":
+		a8 = fmt.Sprintf("Casque : %s", borrow.Headphones[0].ModelName)
+		b8 = fmt.Sprintf("Série : %s", borrow.Headphones[0].Serial)
+	case "AIRBOX":
+		a8 = fmt.Sprintf("Airbox : %s", borrow.Airboxes[0].LineNumber)
+		b8 = fmt.Sprintf("IMEI : %s", borrow.Airboxes[0].ImeiNumber)
+	case "CHARGEUR":
+		a8 = "Chargeur PC portable"
+		b8 = fmt.Sprintf(borrow.Chargers[0].ModelName)
+	}
+	f.SetCellValue("Sheet1", "A8", a8)
+	f.SetCellValue("Sheet1", "B8", b8)
+	f.SetCellValue("Sheet1", "C8", fmt.Sprintf("Le %d/%d/%d", borrow.Date.Year(), int(borrow.Date.Month()), borrow.Date.Day()))
 	return nil
 }

@@ -26,6 +26,7 @@ type Headphones struct {
 
 type Airbox struct {
 	LineNumber string
+	ImeiNumber string
 }
 
 type Laptop struct {
