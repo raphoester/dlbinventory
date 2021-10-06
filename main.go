@@ -14,9 +14,11 @@ func main() {
 		return
 	}
 
-	filename := args[1] // input.json
+	inputFileName := args[1] // input.json
+	templateFile := "template.xlsx"
+	fmt.Println(templateFile)
 
-	borrow, err := service.ParseJsonFile(filename)
+	borrow, err := service.ParseJsonFile(inputFileName)
 	if err != nil {
 		log.Fatalf("failed reading input file | %s", err.Error())
 	}
@@ -26,6 +28,19 @@ func main() {
 		log.Fatalf("input data is invalid | %s", err.Error())
 	}
 
-	fileName := service.GeneratePdfFileName(borrow)
+	fileName := service.GenerateFileName(borrow)
 	fmt.Println(fileName)
+
+	xlsx, err := service.GenerateExcelTemplate(fmt.Sprintf("%s.xlsx", fileName))
+	if err != nil {
+		log.Fatalf("failed generating template | %s\n", err.Error())
+	}
+
+	if err := service.FillExcelTemplate(xlsx, borrow); err != nil {
+		log.Fatalf("failed filling borrow details | %s", err.Error())
+	}
+
+	if err := xlsx.SaveAs(fmt.Sprintf("%s.xlsx", fileName)); err != nil {
+		log.Fatalf("failed creating xlsx template | %s", err.Error())
+	}
 }

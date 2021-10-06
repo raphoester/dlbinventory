@@ -50,9 +50,9 @@ func IsBorrowValid(borrow entity.Borrow) (entity.Borrow, error) {
 	return borrow, nil
 }
 
-func GeneratePdfFileName(borrow entity.Borrow) string {
+func GenerateFileName(borrow entity.Borrow) string {
 	fileName := fmt.Sprintf(
-		"ATTRIBUTION_%s %s_%s_%s_%04d%02d%02d.pdf",
+		"ATTRIBUTION_%s %s_%s_%s_%04d%02d%02d",
 		strings.ToUpper(borrow.Borrower.Lastname),
 		borrow.Borrower.Firstname,
 		borrow.Type,
