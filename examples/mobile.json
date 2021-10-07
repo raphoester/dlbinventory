@@ -1,0 +1,12 @@
+{
+    "borrower": {
+        "firstname": "Charles", 
+        "lastname": "Baudelaire", 
+        "department": "Compta"
+    }, 
+    "Mobile": {
+        "lineNumber": "0612365687", 
+        "ModelName": "Samsung Galasy S3",
+        "ImeiNumber": "45612348213451"
+    }
+}   

@@ -1,0 +1,12 @@
+{
+    "borrower":{
+        "firstName": "Guillaume", 
+        "lastName": "Appolinaire",
+        "Department": "Marketing"
+    },
+    "airbox":
+    {
+        "LineNumber": "0645781245",
+        "ImeiNumber": "123456789123456789"
+    }
+}

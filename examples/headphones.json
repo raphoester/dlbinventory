@@ -1,0 +1,13 @@
+{
+    "borrower":{
+        "firstName": "Paul", 
+        "lastName": "Valéry",
+        "Department": "MG"
+    },
+    "headphones":
+    {
+        "ModelName": "Senheiser 458 BT",
+        "Serial": "123456789"
+    },
+    "date":"2021-04-30T00:00:00+02:00"
+}

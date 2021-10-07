@@ -28,24 +28,22 @@ func ParseJsonFile(jsonPath string) (entity.Borrow, error) {
 }
 
 func IsBorrowValid(borrow entity.Borrow) (entity.Borrow, error) {
-	count := len(borrow.Airboxes) + len(borrow.Chargers) + len(borrow.Headphones) + len(borrow.Laptops) + len(borrow.Mobiles)
-	if count != 1 {
-		return entity.Borrow{}, fmt.Errorf("too many equipments are mentionned")
-	}
 	if borrow.Date.Before(time.Date(2015, 1, 1, 0, 0, 0, 0, time.Local)) {
-		return entity.Borrow{}, fmt.Errorf("timestamp is too old (%s)", borrow.Date)
+		borrow.Date = time.Now()
 	}
 
-	if len(borrow.Airboxes) == 1 {
+	if borrow.Airbox.ImeiNumber != "" {
 		borrow.Type = "AIRBOX"
-	} else if len(borrow.Chargers) == 1 {
+	} else if borrow.Charger.ModelName != "" {
 		borrow.Type = "CHARGEUR"
-	} else if len(borrow.Headphones) == 1 {
+	} else if borrow.Headphones.Serial != "" {
 		borrow.Type = "CASQUE"
-	} else if len(borrow.Laptops) == 1 {
+	} else if borrow.Laptop.SerialNumber != "" {
 		borrow.Type = "PORTABLE"
-	} else if len(borrow.Mobiles) == 1 {
+	} else if borrow.Mobile.ImeiNumber != "" {
 		borrow.Type = "MOBILE"
+	} else {
+		borrow.Type = "CUSTOM"
 	}
 	return borrow, nil
 }

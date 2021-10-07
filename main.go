@@ -10,7 +10,7 @@ import (
 func main() {
 	args := os.Args
 	if len(args) < 2 {
-		fmt.Println("help")
+		fmt.Println("You have to specify an input file")
 		return
 	}
 

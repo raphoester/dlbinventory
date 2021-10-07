@@ -3,11 +3,11 @@ package entity
 import "time"
 
 type Borrow struct {
-	Headphones []Headphones
-	Airboxes   []Airbox
-	Chargers   []Charger
-	Laptops    []Laptop
-	Mobiles    []Mobile
+	Headphones Headphones
+	Airbox     Airbox
+	Charger    Charger
+	Laptop     Laptop
+	Mobile     Mobile
 	Borrower   Person
 	Date       time.Time
 	Type       string

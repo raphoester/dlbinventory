@@ -1,0 +1,10 @@
+{
+    "borrower": {
+        "firstname": "Paul", 
+        "lastname": "Éluard", 
+        "department": "Informatique"
+    },
+    "charger": {
+        "modelName":"chargeur samsung super bien"
+    }
+}
