@@ -55,7 +55,10 @@ func GenerateExcelTemplate(name string) (*excelize.File, error) {
 		return &excelize.File{}, fmt.Errorf("failed creating array style | %s", err.Error())
 	}
 
-	f.SetColWidth("Sheet1", "A", "E", float64(21))
+	f.SetColWidth("Sheet1", "A", "A", float64(21))
+	f.SetColWidth("Sheet1", "B", "B", float64(18))
+	f.SetColWidth("Sheet1", "C", "D", float64(14))
+	f.SetColWidth("Sheet1", "E", "E", float64(18))
 	f.SetRowHeight("Sheet1", 7, float64(40))
 
 	f.SetRowHeight("Sheet1", 8, float64(65))
